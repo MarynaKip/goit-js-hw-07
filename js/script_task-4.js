@@ -6,13 +6,13 @@ const valueRef = document.querySelector('#value');
 
 let counterValue = 0;
 
-function increment () {
+function increment (event) {
 counterValue += 1;
 valueRef.textContent = counterValue;
   console.log("Increment +1")
 };
 
-function decrement () {
+function decrement (event) {
 counterValue -= 1;
 valueRef.textContent = counterValue;
   console.log("Decrement -1")
