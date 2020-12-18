@@ -4,10 +4,10 @@ validInputRef.addEventListener("blur", handleInputBlur);
 
 function handleInputBlur(event) {
   console.log(document.getElementById("validation-input").value.length);
-  console.log(validInputRef.getAttribute("length"));
+  console.log(validInputRef.getAttribute("data-length"));
   if (
-    document.getElementById("validation-input").value.length <=
-    validInputRef.getAttribute("length")
+    Number(document.getElementById("validation-input").value.length) ===
+    Number(validInputRef.getAttribute("data-length"))
   ) {
     validInputRef.classList.add("valid");
   } else {
