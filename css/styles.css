@@ -4,7 +4,6 @@
   justify-content: space-between;
 }
 
-
 #validation-input {
   border: 3px solid #bdbdbd;
 }
@@ -16,3 +15,4 @@
 #validation-input.invalid {
   border-color: #f44336;
 }
+\
