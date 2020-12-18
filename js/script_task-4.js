@@ -12,13 +12,11 @@ decrementBtnRef.addEventListener ('click', decrement);
 function increment (event) {
 counterValue += 1;
 valueRef.textContent = counterValue;
-  console.log("Increment +1")
 };
 
 function decrement (event) {
 counterValue -= 1;
 valueRef.textContent = counterValue;
-  console.log("Decrement -1")
 };
 
 
