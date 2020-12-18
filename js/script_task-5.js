@@ -4,6 +4,9 @@ const nameOutputRef = document.querySelector('#name-output');
 inputRef.addEventListener('input', signChange);
 
 function signChange (event) {
+  if (event.target.value === "") {
+      nameOutputRef.textContent = 'незнакомец'
+      } else {
   nameOutputRef.textContent = event.target.value;
-    console.log("text added")
+      }
 }
