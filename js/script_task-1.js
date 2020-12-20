@@ -5,7 +5,7 @@ console.log(`В списке ${childrenNum} категории`);
 const items = [...document.querySelectorAll("li.item")];
 items
   .map((item) => {
-    const title = item.querySelector("h2").textContent;
+    const title = item.firstElementChild.textContent;
     const liNum = item.querySelectorAll("ul li").length;
     return {
       title,
