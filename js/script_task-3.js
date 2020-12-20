@@ -16,12 +16,12 @@ const images = [
   },
 ];
 
+let insertedElementsText = "";
 const createImgList = images.map((image) => {
-  const imgRef = document.createElement("img");
-  imgRef.url = image.url;
-  imgRef.alt = image.alt;
-  return imgRef;
+  insertedElementsText =
+    insertedElementsText +
+    `<li><img src = ${image.url} alt = ${image.alt}></li>`;
 });
 
 const galleryRef = document.querySelector("#gallery");
-galleryRef.append(...createImgList);
+galleryRef.insertAdjacentHTML("afterbegin", insertedElementsText);
