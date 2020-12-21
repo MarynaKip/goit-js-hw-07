@@ -28,8 +28,12 @@ function createBoxes(amount) {
   boxesRef.append(...elementsArray);
 }
 
+deleteButtonRef.addEventListener('click', destroyBoxes)
 
-
-function destroyBoxes() {
-  
+function destroyBoxes(event) {
+  let boxesFirstChild = boxesRef.firstChild;
+  while(boxesFirstChild) {
+    boxesRef.removeChild(boxesFirstChild);
+    boxesFirstChild = boxesRef.firstChild;
+  }
 }
