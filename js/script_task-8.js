@@ -1,9 +1,11 @@
 const controlsRef = document.querySelector('#controls');
 const boxesRef = document.querySelector('#boxes');
+const createButtonRef = document.querySelector('button[data-action="render"]');
+const deleteButtonRef = document.querySelector('button[data-action="destroy"]');
 
-controlsRef.addEventListener('input', createBoxes);
+createButtonRef.addEventListener('click', createBoxes);
 
-
+let amount = controlsRef.value;
 function createBoxes(amount) {
   
   let elementsArray = [];
