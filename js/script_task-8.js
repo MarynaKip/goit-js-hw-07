@@ -11,7 +11,7 @@ function createBoxes(amount) {
   let elementsArray = [];
   let elementSize = 30;
   
-  for(let i=0, i<amount, i+=1) {
+  for(let i=0; i<amount; i+=1) {
     
     const divRef = document.createElement("div");
     
