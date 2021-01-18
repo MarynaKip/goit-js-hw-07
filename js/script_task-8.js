@@ -4,14 +4,14 @@ const createButtonRef = document.querySelector('button[data-action="render"]');
 const deleteButtonRef = document.querySelector('button[data-action="destroy"]');
 const inputRef = document.querySelector("input");
 
-let numOfElements;
-inputRef.addEventListener("input", findNumOfElements);
+//let numOfElements;
+let amount = inputRef.addEventListener("input", findNumOfElements);
 
 function findNumOfElements(event) {
-  numOfElements = event.target.value;
-  //console.log(numOfElements);
+  let numOfElements = event.target.value;
+  return numOfElements; //console.log(numOfElements);
 }
-
+console.log(amount);
 function createBoxes(amount) {
   createButtonRef.addEventListener("click", createAmountOfBoxes);
 
@@ -37,7 +37,7 @@ function createBoxes(amount) {
   // }
   // boxesRef.append(...elementsArray);
 }
-createBoxes(numOfElements);
+//createBoxes(numOfElements);
 //  deleteButtonRef.addEventListener('click', destroyBoxes)
 
 //  function destroyBoxes(event) {
