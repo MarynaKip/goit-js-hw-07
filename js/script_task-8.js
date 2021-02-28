@@ -1,49 +1,46 @@
-const controlsRef = document.querySelector("#controls");
-const boxesRef = document.querySelector("#boxes");
-const createButtonRef = document.querySelector('button[data-action="render"]');
-const deleteButtonRef = document.querySelector('button[data-action="destroy"]');
-const inputRef = document.querySelector("input");
+const refs = {
+  controls: document.querySelector("#controls"),
+  boxes: document.querySelector("#boxes"),
+  createButton: document.querySelector('button[data-action="render"]'),
+  deleteButton: document.querySelector('button[data-action="destroy"]'),
+  input: document.querySelector("input"),
+};
 
-//let numOfElements;
-let amount = inputRef.addEventListener("input", findNumOfElements);
+refs.createButton.addEventListener("click", createElements);
 
-function findNumOfElements(event) {
-  let numOfElements = event.target.value;
-  return numOfElements; //console.log(numOfElements);
-}
-console.log(amount);
-function createBoxes(amount) {
-  createButtonRef.addEventListener("click", createAmountOfBoxes);
+function createElements(event) {
+  const amount = Number(refs.input.value);
 
-  function createAmountOfBoxes(event) {
-    console.log(amount);
+  let elementsArray = [];
+  let elementSize = 30;
+
+  for (let i = 0; i < amount; i += 1) {
+    const divRef = document.createElement("div");
+
+    elementsArray.push(divRef);
+
+    elementsArray[i].style.width = `${elementSize + i * 10}px`;
+    elementsArray[i].style.height = `${elementSize + i * 10}px`;
+
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+
+    let bgColor = `rgb(${r}, ${g}, ${b})`;
+
+    elementsArray[i].style.backgroundColor = bgColor;
   }
 
-  // let elementsArray = [];
-  // let elementSize = 30;
-
-  // for (let i = 0; i < amount; i += 1) {
-  //   const divRef = document.createElement("div");
-
-  //   let r = Math.floor(Math.rendom() * (255 - 0 + 1) + 0);
-  //   let g = Math.floor(Math.rendom() * (255 - 0 + 1) + 0);
-  //   let b = Math.floor(Math.rendom() * (255 - 0 + 1) + 0);
-
-  //   divRef.style.backgroundColor = `rgb(${r}, ${g}, ${b},`;
-
-  //   divRef.style.width = `${elementSize + i * 10}px`;
-  //   divRef.style.height = `${elementSize + i * 10}px`;
-  //   elementsArray.push(divRef);
-  // }
-  // boxesRef.append(...elementsArray);
+  refs.boxes.append(...elementsArray);
 }
-//createBoxes(numOfElements);
-//  deleteButtonRef.addEventListener('click', destroyBoxes)
 
-//  function destroyBoxes(event) {
-//    let boxesFirstChild = boxesRef.firstChild;
-//    while(boxesFirstChild) {
-//      boxesRef.removeChild(boxesFirstChild);
-//      boxesFirstChild = boxesRef.firstChild;
-//    }
-//  }
+refs.deleteButton.addEventListener("click", destroyBoxes);
+
+function destroyBoxes(event) {
+  refs.input.value = "";
+  let boxesFirstChild = refs.boxes.firstChild;
+  while (boxesFirstChild) {
+    refs.boxes.removeChild(boxesFirstChild);
+    boxesFirstChild = refs.boxes.firstChild;
+  }
+}
