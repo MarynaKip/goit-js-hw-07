@@ -31,6 +31,6 @@ const images = [
 const gallery = document.querySelector('ul.gallery')
 gallery.classList.add('gallery')
 
-const markup = images.map(item => `<img class='galleryItem' src=${item.url} alt=${item.alt}/>`).join('')
+const markup = images.map(item => `<img class='galleryItem' src=${item.url} alt="${item.alt}"/>`).join('')
 
 gallery.insertAdjacentHTML("afterbegin", markup)
