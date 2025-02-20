@@ -17,7 +17,7 @@ let divSize = 0
 
 function createHandler(event) {
   const amount = inputEl.value
-  createBoxes(amount)
+  if(amount>0 && amount<=100) createBoxes(amount)
 }
 
 function createBoxes(amount) {
