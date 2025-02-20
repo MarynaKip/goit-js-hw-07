@@ -21,6 +21,10 @@ function createHandler(event) {
 }
 
 function createBoxes(amount) {
+  if(divSize>0) {
+    divSize = 0
+    boxesEl.innerHTML = ''
+  }
   for(let i =0; i<amount; i++) {
     divSize += 30
     const newElement = document.createElement('div');
@@ -29,6 +33,7 @@ function createBoxes(amount) {
     newElement.style.height = `${divSize}px`;
     boxesEl.append(newElement);
   }
+  inputEl.value = ''
 }
 
 function destroyHandler(event) {
