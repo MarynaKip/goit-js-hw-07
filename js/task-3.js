@@ -1,6 +1,10 @@
-const getElementWidth = (content, padding, border) =>
-  parseFloat(content) + 2 * parseFloat(padding) + 2 * parseFloat(border);
+const inpurEl = document.querySelector('input#name-input');
+const spanEl = document.querySelector('span#name-output')
 
-console.log(getElementWidth('50px', '8px', '4px')); // 74
-console.log(getElementWidth('60px', '12px', '8.5px')); // 101
-console.log(getElementWidth('200px', '0px', '0px')); // 200
+inpurEl.addEventListener('input', handlerInput)
+
+function handlerInput(event) {
+    const inputValue = event.target.value.trim();
+    spanEl.textContent = inputValue ?? 'Anonymous';
+}
+
